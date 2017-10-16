@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<bean id="hiredateObject" class="java.util.Date"></bean><!-- 配置了系统类 -->
+	<!-- 在Spring中负责进行MessageImpl类对象的实例化处理，这个时候相当于使用反射机制来实例化对象 -->
+	<bean id="emp" class="cn.mldn.zlg.di.vo.Emp">
+		<property name="empno" value="7369"></property>
+		<property name="ename" value="zhanglongge"></property>
+		<property name="salary" value="99999"></property>
+		<!-- 此时使用的诗一个对象，所以可以直接进行其他bean的配置说明 -->
+		<property name="hiredate" ref="hiredateObject"></property>
+	</bean>
+	
+</beans>
