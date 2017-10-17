@@ -9,6 +9,13 @@ public class Emp implements Serializable {
 	private String ename;
 	private Double salary;
 	private Date hiredate;
+	private Dept dept;
+	public Dept getDept() {
+		return dept;
+	}
+	public void setDept(Dept dept) {
+		this.dept = dept;
+	}
 	public Long getEmpno() {
 		return empno;
 	}
@@ -35,7 +42,9 @@ public class Emp implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Emp [empno=" + empno + ", ename=" + ename + ", salary=" + salary + ", hiredate=" + hiredate + "]";
+		return "Emp [empno=" + empno + ", ename=" + ename + ", salary=" + salary + ", hiredate=" + hiredate + ", dept="
+				+ dept + "]";
 	}
+	
 	
 }
