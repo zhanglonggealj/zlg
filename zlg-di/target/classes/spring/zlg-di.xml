@@ -6,21 +6,55 @@
 	 http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 	
 	<bean id="hiredateObject" class="java.util.Date"></bean><!-- 配置了系统类 -->
-	<bean id="deptObj" class="cn.mldn.zlg.di.vo.Dept" p:deptno="110" p:dname="总裁" p:enable="1"></bean>
-	<bean id="emp" class="cn.mldn.zlg.di.vo.Emp" p:empno="120" p:ename="zhanglongge" p:salary="9999" p:dept-ref="deptObj" p:hiredate-ref="hiredateObject"></bean>
-	<!-- <bean id="deptObj" class="cn.mldn.zlg.di.vo.Dept">
+	<!-- <bean id="deptObj" class="cn.mldn.zlg.di.vo.Dept" p:deptno="110" p:dname="总裁" p:enable="1"></bean>
+	<bean id="emp" class="cn.mldn.zlg.di.vo.Emp" p:empno="120" p:ename="zhanglongge" p:salary="9999" p:dept-ref="deptObj" p:hiredate-ref="hiredateObject"></bean> -->
+	<bean id="deptObj" class="cn.mldn.zlg.di.vo.Dept">
 		<property name="deptno" value="110"></property>
 		<property name="dname" value="总裁"></property>
 		<property name="enable" value="1"></property>
+		<property name="emps">
+			<array><!-- 该属性定义的是一个数组，所以现在配置的就是数组 -->
+				<ref bean="empA"/><!-- 进行依赖对象的引用 -->
+				<ref bean="empB"/><!-- 进行依赖对象的引用 -->
+			</array>
+		</property>
+		<property name="infos"><!-- 追加得是普通的字符串的数组信息 -->
+			<array>
+				<value>zhanglonggegaga</value>
+				<value>hahaha</value>
+			</array>
+		</property>
 	</bean>
-	在Spring中负责进行MessageImpl类对象的实例化处理，这个时候相当于使用反射机制来实例化对象
-	<bean id="emp" class="cn.mldn.zlg.di.vo.Emp">
+	<!-- 在Spring中负责进行MessageImpl类对象的实例化处理，这个时候相当于使用反射机制来实例化对象 -->
+	<bean id="empA" class="cn.mldn.zlg.di.vo.Emp">
 		<property name="empno" value="7369"></property>
 		<property name="ename" value="zhanglongge"></property>
 		<property name="salary" value="99999"></property>
-		此时使用的诗一个对象，所以可以直接进行其他bean的配置说明
+		<!-- 此时使用的诗一个对象，所以可以直接进行其他bean的配置说明 
 		<property name="hiredate" ref="hiredateObject"></property>
-		<property name="dept" ref="deptObj"></property>
-	</bean> -->
-	
+		<property name="dept" ref="deptObj"></property> -->
+	</bean>
+	<bean id="empB" class="cn.mldn.zlg.di.vo.Emp">
+		<property name="empno" value="9527"></property>
+		<property name="ename" value="longge"></property>
+		<property name="salary" value="100000"></property>
+	</bean>
+	<bean id="message" class="cn.mldn.zlg.di.vo.Message"></bean>
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

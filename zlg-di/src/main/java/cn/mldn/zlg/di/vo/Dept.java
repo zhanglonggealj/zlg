@@ -1,6 +1,7 @@
 package cn.mldn.zlg.di.vo;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 @SuppressWarnings("serial")
 public class Dept implements Serializable {
@@ -8,6 +9,20 @@ public class Dept implements Serializable {
 	private Long deptno;
 	private String dname;
 	private Boolean enable;
+	private Emp [] emps;
+	private String [] infos;
+	public Emp[] getEmps() {
+		return emps;
+	}
+	public void setEmps(Emp[] emps) {
+		this.emps = emps;
+	}
+	public String[] getInfos() {
+		return infos;
+	}
+	public void setInfos(String[] infos) {
+		this.infos = infos;
+	}
 	public Long getDeptno() {
 		return deptno;
 	}
@@ -28,8 +43,10 @@ public class Dept implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Dept [deptno=" + deptno + ", dname=" + dname + ", enable=" + enable + "]";
+		return "Dept [deptno=" + deptno + ", dname=" + dname + ", enable=" + enable + ", emps=" + Arrays.toString(emps)
+				+ ", infos=" + Arrays.toString(infos) + "]";
 	}
+	
 	
 	
 }
