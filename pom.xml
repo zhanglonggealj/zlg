@@ -95,5 +95,7 @@
 	<modules>
 		<module>zlg-ioc</module>
 		<module>zlg-di</module>
+		<module>zlg-context</module>
+		<module>zlg-resource</module>
 	</modules>
 </project>
